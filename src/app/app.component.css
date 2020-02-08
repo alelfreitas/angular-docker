@@ -61,10 +61,6 @@
     width: auto;
   }
 
-  svg.material-icons:not(:last-child) {
-    margin-right: 8px;
-  }
-
   .card svg.material-icons path {
     fill: #888;
   }
@@ -126,6 +122,10 @@
 
   .card.card.highlight-card span {
     margin-left: 60px;
+  }
+
+  svg.material-icons:not(:last-child) {
+    margin-right: 8px;
   }
 
   svg#rocket {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RadarService } from '../consulta/radar.service';
 import { Radar } from '../consulta/radar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-radar-lista',
@@ -10,9 +11,13 @@ import { Radar } from '../consulta/radar';
 })
 export class RadarListaComponent implements OnInit {
 
-  papels = this.radarService.listaRecomendacao('PETR4');
+  nomePapel = this.activatedRoute.snapshot.params.nomePapel;
+  papels = this.radarService.listaRecomendacao(this.nomePapel);
 
-  constructor(private radarService: RadarService) {}
+  constructor(
+    private radarService: RadarService,
+    private activatedRoute: ActivatedRoute
+    ) {}
 
   ngOnInit(): void {
       // this.radarService.listaRecomendacao('PETR4').subscribe(papel => this.papel = papel);
