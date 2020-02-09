@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 import { RadarService } from '../consulta/radar.service';
 import { Radar } from '../consulta/radar';
@@ -9,18 +9,20 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './radar-lista.component.html',
   styleUrls: ['./radar-lista.component.css']
 })
-export class RadarListaComponent implements OnInit {
+export class RadarListaComponent implements OnChanges {
 
   nomePapel = this.activatedRoute.snapshot.params.nomePapel;
-  papels = this.radarService.listaRecomendacao(this.nomePapel);
+  radares = this.radarService.listaRecomendacao(this.nomePapel);
+  filter = '';
 
   constructor(
     private radarService: RadarService,
     private activatedRoute: ActivatedRoute
     ) {}
 
-  ngOnInit(): void {
-      // this.radarService.listaRecomendacao('PETR4').subscribe(papel => this.papel = papel);
+  ngOnChanges(changes: SimpleChanges) {
+    // const nomePapel = this.activatedRoute.snapshot.params.nomePapel;
+      // this.radarService.listaRecomendacao(nomePapel).subscribe(papel => this.papel = papel);
   }
 
 }

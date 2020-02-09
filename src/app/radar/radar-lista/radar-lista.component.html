@@ -4,11 +4,22 @@
 
   <input type="hidden" #selection>
 
+  <div class="text-center mt-3 mb-3">
+    <form>
+        <input
+            class="rounded"
+            type="search"
+            placeholder="search..."
+            autofocus
+            (keyup)="filter = $event.target.value">
+    </form>
+</div>
+
+<h1 *ngIf="filter === 'TESTE'">Não existe</h1>
+
   <div class="card-container">
 
-  <app-radar *ngFor="let papel of papels"
-    [nomePapel]="papel.papel"
-    [valor]="papel.valor"> </app-radar>
+    <app-radares [radares] = 'radares | filterByPapel: filter' *ngIf="filter !== 'TESTE'"></app-radares>
 
   </div>
 
