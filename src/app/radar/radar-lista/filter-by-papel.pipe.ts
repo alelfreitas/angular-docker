@@ -14,9 +14,7 @@ export class FilterByPapel implements PipeTransform {
             .toUpperCase();
 
         if (papelQuery) {
-            if (papelQuery.length > 4) {
-                return this.radarService.listaRecomendacao(papelQuery);
-            }
+            return this.radarService.listaRecomendacao(papelQuery);
         } else {
             return radares;
         }

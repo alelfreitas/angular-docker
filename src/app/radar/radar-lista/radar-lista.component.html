@@ -3,7 +3,6 @@
   <h2>Ações</h2>
 
   <input type="hidden" #selection>
-
   <div class="text-center mt-3 mb-3">
     <form>
         <input
@@ -11,25 +10,14 @@
             type="search"
             placeholder="search..."
             autofocus
-            (keyup)="filter = $event.target.value">
+            (keyup)="debounce.next($event.target.value)">
     </form>
-</div>
-
-<h1 *ngIf="filter === 'TESTE'">Não existe</h1>
-
-  <div class="card-container">
-
-    <app-radares [radares] = 'radares | filterByPapel: filter' *ngIf="filter !== 'TESTE'"></app-radares>
-
   </div>
 
-    <!-- Terminal -->
-    <div class="terminal" [ngSwitch]="selection.value">
-      <pre *ngSwitchDefault>ng generate component xyz</pre>
-      <pre *ngSwitchCase="'material'">ng add @angular/material</pre>
-      <pre *ngSwitchCase="'pwa'">ng add @angular/pwa</pre>
-      <pre *ngSwitchCase="'dependency'">ng add _____</pre>
-      <pre *ngSwitchCase="'test'">ng test</pre>
-      <pre *ngSwitchCase="'build'">ng build --prod</pre>
-  </div> 
+  <h1 *ngIf="filter === 'TESTE'">Não existe</h1>
+  <div class="card-container">
+    <app-radares [radares] = 'radares' *ngIf="filter !== 'TESTE'"></app-radares>
+  </div>
+  <app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>
+
 </div>

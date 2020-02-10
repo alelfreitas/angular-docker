@@ -6,6 +6,7 @@ import { RadarComponent } from './consulta/radar.component';
 import { RadarListaComponent } from './radar-lista/radar-lista.component';
 import { RadaresComponent } from './radar-lista/radares/radares.component';
 import { FilterByPapel } from './radar-lista/filter-by-papel.pipe';
+import { LoadButtonComponent } from './radar-lista/load-button/load-button.component';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { FilterByPapel } from './radar-lista/filter-by-papel.pipe';
         RadarComponent,
         RadarListaComponent,
         RadaresComponent,
-        FilterByPapel ],
+        FilterByPapel,
+        LoadButtonComponent ],
     imports: [
         HttpClientModule,
         CommonModule],
