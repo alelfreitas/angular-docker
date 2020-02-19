@@ -10,6 +10,7 @@ import { RadarService } from '../../consulta/radar.service';
 export class RadaresComponent implements OnChanges {
 
   @Input() radares: Radar[] = [];
+  displayedColumns: string[] = ['Papel', 'Valor', 'Ação'];
 
   constructor(private radarService: RadarService) { }
 

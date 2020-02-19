@@ -1,4 +1,5 @@
 import { Component,  Input } from '@angular/core';
+import { Radar } from './radar';
 
 
 @Component({
@@ -11,5 +12,6 @@ export class RadarComponent {
 
     @Input() nomePapel = '';
     @Input() valor = '';
+    @Input() dataSource: Radar[];
 
 }

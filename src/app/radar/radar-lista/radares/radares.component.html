@@ -1,4 +1,14 @@
-
-<app-radar *ngFor="let radar of radares"
-[nomePapel]="radar.papel"
-[valor]="radar.valor"> </app-radar>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th *ngFor="let c of displayedColumns" scope="col">{{c}}</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let r of radares">
+            <th>{{r.papel}}</th>
+            <td>{{r.valor}}</td>
+            <td>ok</td>
+        </tr>
+    </tbody>
+</table>
